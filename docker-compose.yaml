@@ -1,0 +1,28 @@
+version: "1"
+services:
+  kafka:
+    image: bitnami/kafka
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        window: 120s
+    networks:
+      - cas
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      ALLOW_PLAINTEXT_LISTENER: yes
+
+  postgres:
+    image: postgres
+    networks:
+      - cas
+    environment:
+      POSTGRES_PASSWORD: test
+
+
+networks:
+  cas:
+    name: cas
