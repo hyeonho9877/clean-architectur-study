@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.food.ordering'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation project(':order-service:order-domain')
+    implementation project(':order-service:order-application')
+    implementation project(':order-service:order-domain:order-application-service')
+    implementation project(':order-service:order-data-access')
+    implementation project(':order-service:order-messaging')
+}
+
+test {
+    useJUnitPlatform()
+}
