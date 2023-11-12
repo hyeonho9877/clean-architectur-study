@@ -108,6 +108,10 @@ public class Order extends AggregateRoot<OrderId> {
         }
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public void cancel(List<String> failureMessages) {
         if(!(orderStatus == OrderStatus.CANCELLING || orderStatus == OrderStatus.PENDING))
             throw new OrderDomainException("Order is not in correct status for cancel operation!");
