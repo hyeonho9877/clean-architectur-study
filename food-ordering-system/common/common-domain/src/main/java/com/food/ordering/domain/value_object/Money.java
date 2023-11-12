@@ -6,14 +6,14 @@ import java.util.Objects;
 
 public class Money {
     public static final Money ZERO = new Money(BigDecimal.ZERO);
-    private final BigDecimal amounts;
+    private final BigDecimal amount;
 
-    public Money(BigDecimal amounts) {
-        this.amounts = amounts;
+    public Money(BigDecimal amount) {
+        this.amount = amount;
     }
 
-    public BigDecimal getAmounts() {
-        return amounts;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
     @Override
@@ -23,32 +23,32 @@ public class Money {
 
         Money money = (Money) o;
 
-        return Objects.equals(amounts, money.amounts);
+        return Objects.equals(amount, money.amount);
     }
 
     @Override
     public int hashCode() {
-        return amounts != null ? amounts.hashCode() : 0;
+        return amount != null ? amount.hashCode() : 0;
     }
 
     public boolean isGreaterThanZero() {
-        return this.amounts.compareTo(BigDecimal.ZERO) > 0;
+        return this.amount != null && this.amount.compareTo(BigDecimal.ZERO) > 0;
     }
 
     public boolean isGreaterThan(Money money) {
-        return this.amounts.compareTo(money.getAmounts()) > 0;
+        return this.amount != null && this.amount.compareTo(money.getAmount()) > 0;
     }
 
     public Money add(Money money) {
-        return new Money(setScale(this.amounts.add(money.getAmounts())));
+        return new Money(setScale(this.amount.add(money.getAmount())));
     }
 
     public Money subtract(Money money) {
-        return new Money(setScale(this.amounts.subtract(money.getAmounts())));
+        return new Money(setScale(this.amount.subtract(money.getAmount())));
     }
 
     public Money multiply(int multiplier) {
-        return new Money(setScale(this.amounts.multiply(new BigDecimal(multiplier))));
+        return new Money(setScale(this.amount.multiply(new BigDecimal(multiplier))));
     }
 
     private BigDecimal setScale(BigDecimal input) {

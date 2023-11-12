@@ -1,14 +1,14 @@
-package order.service.domain;
+package com.food.ordering.system.order.service.domain;
 
 import com.food.ordering.domain.value_object.ProductId;
-import order.service.domain.entity.Order;
-import order.service.domain.entity.OrderItem;
-import order.service.domain.entity.Product;
-import order.service.domain.entity.Restaurant;
-import order.service.domain.event.OrderCancelledEvent;
-import order.service.domain.event.OrderCreatedEvent;
-import order.service.domain.event.OrderPaidEvent;
-import order.service.domain.exception.OrderDomainException;
+import com.food.ordering.system.order.service.domain.entity.Order;
+import com.food.ordering.system.order.service.domain.entity.OrderItem;
+import com.food.ordering.system.order.service.domain.entity.Product;
+import com.food.ordering.system.order.service.domain.entity.Restaurant;
+import com.food.ordering.system.order.service.domain.event.OrderCancelledEvent;
+import com.food.ordering.system.order.service.domain.event.OrderCreatedEvent;
+import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
+import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;

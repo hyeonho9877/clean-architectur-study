@@ -1,9 +1,9 @@
-package order.service.domain.entity;
+package com.food.ordering.system.order.service.domain.entity;
 
 import com.food.ordering.domain.entity.BaseEntity;
 import com.food.ordering.domain.value_object.Money;
 import com.food.ordering.domain.value_object.OrderId;
-import order.service.domain.value_object.OrderItemId;
+import com.food.ordering.system.order.service.domain.value_object.OrderItemId;
 
 public class OrderItem extends BaseEntity<OrderItemId> {
     private OrderId orderId;
@@ -48,6 +48,10 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 
     boolean isPriceValid() {
         return price.isGreaterThanZero() && price.equals(product.getPrice()) && price.multiply(quantity).equals(subTotal);
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
 
